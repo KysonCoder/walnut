@@ -1,0 +1,13 @@
+system:
+  shm_name: "/ROBOT_GLOBAL_DATA"
+  shm_size: 104857600
+  watchdog_interval_ms: 100
+  heartbeat_timeout_ms: 500
+
+tasks:
+  - name: "state_master"
+    executable: "./state_master.elf"
+    priority: 99
+    cpu: 0
+    autorestart: true
+    max_restarts: 3

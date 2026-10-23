@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>机器人 HMI</title>
+<link rel="stylesheet" href="/assets/app.css"/>
+<script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script>
+</head>
+<body>
+<header id="topbar">
+  <span id="connState"><span class="dot off"></span>未连接</span>
+  <span id="fsmState">状态: —</span>
+  <span id="runMode">模式: —</span>
+  <span id="staleFlag" class="hidden warn">反馈过期</span>
+  <span class="spacer"></span>
+  <button id="estopBtn" class="b-red">急停</button>
+</header>
+<nav id="tabbar">
+  <button class="tab active" data-tab="operation">主操作</button>
+  <button class="tab" data-tab="monitor">监控</button>
+  <button class="tab" data-tab="twin">3D 孪生</button>
+  <button class="tab" data-tab="teach">示教</button>
+  <button class="tab" data-tab="program">程序</button>
+</nav>
+<main>
+  <section id="tab-operation" class="tabpage"></section>
+  <section id="tab-monitor" class="tabpage hidden"></section>
+  <section id="tab-twin" class="tabpage hidden"></section>
+  <section id="tab-teach" class="tabpage hidden"></section>
+  <section id="tab-program" class="tabpage hidden"></section>
+</main>
+<div id="toast" class="hidden"></div>
+<script type="module" src="/assets/app.js"></script>
+</body>
+</html>

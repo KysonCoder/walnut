@@ -1,0 +1,34 @@
+system:
+  shm_name: "/ROBOT_GLOBAL_DATA"
+  shm_size: 104857600
+  watchdog_interval_ms: 100
+  heartbeat_timeout_ms: 500
+
+tasks:
+  - name: state_master
+    executable: "./state_master.elf"
+    priority: 80
+    cpu: 2
+    autorestart: true
+    max_restarts: 3
+
+  - name: planning_task
+    executable: "./planning_task.elf"
+    priority: 95
+    cpu: 3
+    autorestart: true
+    max_restarts: 3
+
+  - name: servo_task
+    executable: "./servo_task.elf"
+    priority: 96
+    cpu: 3
+    autorestart: true
+    max_restarts: 3
+
+  - name: fieldbus_task
+    executable: "./fieldbus_task.elf"
+    priority: 98
+    cpu: 4
+    autorestart: true
+    max_restarts: 3

@@ -1,0 +1,142 @@
+{
+   "breakpoint_group" : 2,
+   "flavor" : "dualarm",
+   "program" : {
+      "actionGroup" : [
+         [
+            {
+               "commandValue" : [
+                  0.10000000000000001,
+                  0.20000000000000001,
+                  0.29999999999999999,
+                  0,
+                  0,
+                  0,
+                  0
+               ],
+               "currentActionGroup" : 1,
+               "is_pose_valid" : false,
+               "motionType" : 1,
+               "name" : "",
+               "speed" : {
+                  "ext_rad_s" : 10,
+                  "joint_rad_s" : 1,
+                  "ori_rad_s" : 1,
+                  "tcp_m_s" : 1
+               },
+               "unitType" : 0
+            },
+            {
+               "commandValue" : [ 1, 2, 3, 0, 0, 0, 0 ],
+               "currentActionGroup" : 1,
+               "is_pose_valid" : false,
+               "motionType" : 1,
+               "name" : "",
+               "speed" : {
+                  "ext_rad_s" : 10,
+                  "joint_rad_s" : 2,
+                  "ori_rad_s" : 2,
+                  "tcp_m_s" : 2
+               },
+               "unitType" : 1
+            }
+         ],
+         [
+            {
+               "commandValue" : [
+                  0.20000000000000001,
+                  0.29999999999999999,
+                  0.40000000000000002,
+                  0,
+                  0,
+                  0,
+                  0
+               ],
+               "currentActionGroup" : 2,
+               "is_pose_valid" : false,
+               "motionType" : 1,
+               "name" : "",
+               "speed" : {
+                  "ext_rad_s" : 10,
+                  "joint_rad_s" : 1,
+                  "ori_rad_s" : 1,
+                  "tcp_m_s" : 1
+               },
+               "unitType" : 0
+            },
+            {
+               "commandValue" : [ 1.2, 1.5, 2, 0, 0, 0, 0 ],
+               "currentActionGroup" : 2,
+               "is_pose_valid" : false,
+               "motionType" : 1,
+               "name" : "",
+               "speed" : {
+                  "ext_rad_s" : 10,
+                  "joint_rad_s" : 2,
+                  "ori_rad_s" : 2,
+                  "tcp_m_s" : 2
+               },
+               "unitType" : 1
+            }
+         ],
+         [
+            {
+               "commandValue" : [
+                  0.10000000000000001,
+                  0.20000000000000001,
+                  0.29999999999999999,
+                  0,
+                  0,
+                  0,
+                  0
+               ],
+               "currentActionGroup" : 3,
+               "is_pose_valid" : false,
+               "motionType" : 1,
+               "name" : "",
+               "speed" : {
+                  "ext_rad_s" : 10,
+                  "joint_rad_s" : 1,
+                  "ori_rad_s" : 1,
+                  "tcp_m_s" : 1
+               },
+               "unitType" : 0
+            },
+            {
+               "commandValue" : [ 1, 2, 3, 0, 0, 0, 0 ],
+               "currentActionGroup" : 3,
+               "is_pose_valid" : false,
+               "motionType" : 1,
+               "name" : "",
+               "speed" : {
+                  "ext_rad_s" : 10,
+                  "joint_rad_s" : 2,
+                  "ori_rad_s" : 2,
+                  "tcp_m_s" : 2
+               },
+               "unitType" : 1
+            }
+         ]
+      ],
+      "cmd" : "TESTAUTOPROGRAM",
+      "name" : ""
+   },
+   "running_mode" : "auto",
+   "stop_mode" : "on_path",
+   "stop_position" : [
+      1.21532024765221,
+      0.20000198600061042,
+      0.3000019860006104,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      1.9999999999999996,
+      2.9999999999999991,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+   ],
+   "version" : 1
+}

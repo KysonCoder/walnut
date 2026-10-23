@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>机器人 HMI 控制界面</title>
+<style>
+body{font-family:sans-serif;background:#f3f4f6;margin:0;padding:24px;color:#111827}
+.card{max-width:960px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:24px}
+h1{text-align:center;color:#2563eb;font-size:22px;margin:0 0 20px}
+h2{font-size:16px;margin:18px 0 8px;color:#374151}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+button{padding:8px 14px;border:0;border-radius:8px;color:#fff;cursor:pointer;font-size:14px}
+button:disabled{opacity:.35;cursor:not-allowed}
+.b-blue{background:#3b82f6}.b-gray{background:#6b7280}.b-green{background:#16a34a}
+.b-orange{background:#f59e0b}.b-red{background:#ef4444}.b-purple{background:#8b5cf6}
+.b-indigo{background:#6366f1}.b-slate{background:#64748b}
+.b-sm{padding:4px 8px;font-size:12px}
+input,select,textarea{padding:8px;border:1px solid #d1d5db;border-radius:8px;font-size:14px}
+table{width:100%;border-collapse:collapse}
+td,th{padding:6px 10px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:14px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.ok{background:#22c55e}.off{background:#9ca3af}
+#log{background:#111827;color:#d1d5db;border-radius:8px;padding:10px;height:160px;overflow-y:auto;font:12px/1.5 monospace;white-space:pre-wrap}
+.hidden{display:none}
+.group{border:1px solid #e5e7eb;border-radius:8px;margin-top:12px;background:#fff}
+.group-head{display:flex;gap:8px;align-items:center;padding:8px 10px;border-bottom:1px solid #e5e7eb;background:#f8fafc;flex-wrap:wrap}
+.group-body{padding:10px}
+.action{border:1px solid #e5e7eb;border-radius:8px;padding:10px;margin-top:8px;background:#f8fafc}
+.action label{font-size:12px;color:#374151;display:inline-block;margin:0 8px 4px 0}
+.action input,.action select{width:90px;padding:4px;font-size:12px;margin-top:2px}
+.cvrow input{width:70px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>机器人 HMI 控制界面</h1>
+
+<h2>HMI 连接</h2>
+<div class="row">
+  <label>地址 <input id="hmiAddr" style="width:180px"/></label>
+  <span id="connState"><span class="dot off"></span>未连接</span>
+</div>
+
+<h2>状态消息 <span id="fsmState" style="font-size:13px;color:#6b7280">当前状态: —</span></h2>
+<div class="row">
+  <button class="b-blue" data-msg="msg_initialize" onclick="sendCmd(this)">初始化</button>
+  <button class="b-blue" data-msg="msg_config" onclick="sendCmd(this)">配置</button>
+  <button class="b-blue" data-msg="msg_motor_on" onclick="sendCmd(this)">上电</button>
+  <button class="b-blue" data-msg="msg_motor_off" onclick="sendCmd(this)">下电</button>
+  <button class="b-blue" data-msg="msg_control_on" onclick="sendCmd(this)">使能</button>
+  <button class="b-blue" data-msg="msg_control_off" onclick="sendCmd(this)">去使能</button>
+  <button class="b-orange" data-msg="msg_error" onclick="sendCmd(this)">错误</button>
+  <button class="b-purple" data-msg="msg_reset_ok" onclick="sendCmd(this)">重置</button>
+  <button class="b-red" data-msg="msg_estop" onclick="sendCmd(this)">急停</button>
+</div>
+
+<h2>手动动作执行</h2>
+<div class="row">
+  <input id="unitType" placeholder="unitType" type="number" style="width:90px"/>
+  <input id="motionType" placeholder="motionType" type="number" style="width:100px"/>
+  <select id="isPoseValid">
+    <option value="false">pose: false</option>
+    <option value="true">pose: true</option>
+  </select>
+</div>
+<div class="row" style="margin-top:6px">
+  <input id="j0" placeholder="j0" type="number" style="width:80px"/>
+  <input id="j1" placeholder="j1" type="number" style="width:80px"/>
+  <input id="j2" placeholder="j2" type="number" style="width:80px"/>
+  <input id="j3" placeholder="j3" type="number" style="width:80px"/>
+  <input id="j4" placeholder="j4" type="number" style="width:80px"/>
+  <input id="j5" placeholder="j5" type="number" style="width:80px"/>
+  <input id="j6" placeholder="j6" type="number" style="width:80px"/>
+</div>
+<div class="row" style="margin-top:6px">
+  <button class="b-green" onclick="executeMovement()">执行动作</button>
+</div>
+
+<h2>程序组执行</h2>
+<textarea id="programJson" style="width:100%;height:140px" placeholder='粘贴 JSON 程序结构 {"cmd":"TESTAUTOPROGRAM", "actionGroup":[...]}'></textarea>
+<div class="row" style="margin-top:6px">
+  <button class="b-purple" onclick="executeProgram()">推送程序组</button>
+  <label><input type="checkbox" id="loopExecuteEnabled"/> 循环执行</label>
+  <input id="loopCount" type="number" min="1" value="5" style="width:70px" placeholder="次数"/>
+  <input id="loopInterval" type="number" min="0" value="1000" style="width:90px" placeholder="间隔(ms)"/>
+  <button class="b-orange" id="loopControlBtn" onclick="toggleLoopExecution()">开始循环</button>
+  <span id="loopProgress" style="font-size:13px;color:#2563eb"></span>
+</div>
+<div class="row" style="margin-top:6px">
+  <button class="b-indigo b-sm" id="openBuilderBtn">打开可视化构建器</button>
+  <button class="b-slate b-sm" id="loadFromTextareaBtn">载入到构建器</button>
+</div>
+
+<div id="programBuilder" class="hidden" style="margin-top:12px;border:1px solid #e5e7eb;border-radius:8px;padding:12px;background:#f8fafc">
+  <div class="row">
+    <label>程序名称 <input id="pbProgramName" placeholder="name"/></label>
+    <label>命令(cmd) <input id="pbCmd" value="TESTAUTOPROGRAM" readonly/></label>
+    <button class="b-blue b-sm" id="addGroupBtn">新增动作组</button>
+    <button class="b-slate b-sm" id="collapseAllBtn">折叠/展开</button>
+    <span style="flex:1"></span>
+    <button class="b-green b-sm" id="syncToTextareaBtn">同步到文本</button>
+    <button class="b-orange b-sm" id="copyJsonBtn">复制 JSON</button>
+    <button class="b-purple b-sm" id="sendProgramBtn">直接发送</button>
+  </div>
+  <p style="font-size:12px;color:#6b7280">提示：一个"动作组"是一个二维数组的内层数组。每个动作包含 7 个 commandValue。支持复制/删除/上下移动。</p>
+  <div id="groupsContainer"></div>
+  <div id="builderErrors" class="hidden" style="color:#dc2626;font-size:13px;white-space:pre-line;margin-top:8px"></div>
+  <h3 style="font-size:14px;margin:12px 0 4px">实时 JSON 预览</h3>
+  <pre id="jsonPreview" style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px;font:12px/1.5 monospace;overflow:auto;max-height:280px;white-space:pre"></pre>
+</div>
+
+<h2>停止程序</h2>
+<div class="row">
+  <select id="stopProgram">
+    <option value="true">是</option>
+    <option value="false">否</option>
+  </select>
+  <button class="b-red" onclick="stopProgram()">发送停止命令</button>
+</div>
+
+<h2>位置反馈（200ms 刷新）<span id="fbState" style="font-size:13px;color:#9ca3af"></span></h2>
+<table id="fbTable"><tr><td style="color:#9ca3af">反馈不可用</td></tr></table>
+
+<h2>日志</h2>
+<div id="log"></div>
+</div>
+<script>
+// ---- HMI 地址（localStorage 记忆）----
+const addrInput=document.getElementById('hmiAddr');
+addrInput.value=localStorage.getItem('hmiAddr')||'127.0.0.1:8080';
+addrInput.onchange=()=>localStorage.setItem('hmiAddr',addrInput.value.trim());
+function baseUrl(){return 'http://'+addrInput.value.trim();}
+
+// ---- 日志 ----
+const logs=[];
+function log(m){
+  const t=new Date().toLocaleTimeString();
+  logs.unshift(`[${t}] ${m}`);
+  if(logs.length>200)logs.pop();
+  document.getElementById('log').textContent=logs.join('\n');
+}
+async function postJSON(path,data){
+  const r=await fetch(baseUrl()+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  return {status:r.status, body:await r.json()};
+}
+function logResp(tag,r){log(tag+' → HTTP '+r.status+' '+JSON.stringify(r.body));}
+
+// ---- 状态消息 ----
+async function sendCmd(btn){
+  const msg=btn.dataset.msg;
+  log('发送状态 '+msg);
+  try{logResp('stateMsg',await postJSON('/stateMsg',{cmd:'REFSTATECHANGE',stateMSG:msg}));}
+  catch(e){log('stateMsg 失败: '+e.message);}
+}
+
+// ---- 状态互锁：按主状态机当前状态禁用非法命令（对齐主 FSM 迁移表）----
+const FSM_ALLOWED={
+  sta_uninitiated:["msg_initialize","msg_error","msg_estop"],
+  sta_unconfiged:["msg_config","msg_error","msg_estop"],
+  sta_motor_off:["msg_motor_on","msg_error","msg_estop"],
+  sta_ready:["msg_control_on","msg_motor_off","msg_error","msg_estop"],
+  sta_motion:["msg_control_off","msg_motor_off","msg_error","msg_estop"],
+  sta_estop:["msg_reset_ok"],
+  sta_error:["msg_reset_ok"]
+};
+let curState=null;
+function gateFsmButtons(){
+  const allowed=(curState&&FSM_ALLOWED[curState])||[];
+  document.querySelectorAll('button[data-msg]').forEach(b=>{
+    b.disabled=!allowed.includes(b.dataset.msg);
+  });
+  document.getElementById('fsmState').textContent=' 当前状态: '+(curState||'—');
+}
+gateFsmButtons();  // 页面加载后、首次反馈到达前：全部禁用（安全默认）
+
+// ---- 手动动作执行 ----
+async function executeMovement(){
+  const unitType=parseInt(document.getElementById('unitType').value);
+  const motionType=parseInt(document.getElementById('motionType').value);
+  const is_pose_valid=document.getElementById('isPoseValid').value==='true';
+  const commandValue=[];
+  for(let i=0;i<7;i++)commandValue.push(parseFloat(document.getElementById('j'+i).value||0));
+  log('执行动作 unitType='+unitType+' motionType='+motionType);
+  try{
+    logResp('executeMovement',await postJSON('/executeMovement',
+      {cmd:'FDBMANUALPROGRAM',program:{unitType,motionType,is_pose_valid,commandValue}}));
+  }catch(e){log('executeMovement 失败: '+e.message);}
+}
+
+// ---- 程序组执行 ----
+async function executeProgram(){
+  const raw=document.getElementById('programJson').value;
+  let data;
+  try{data=JSON.parse(raw);}catch(e){alert('JSON 格式错误：'+e.message);return;}
+  log('推送程序组');
+  try{logResp('executeProgram',await postJSON('/executeProgram',data));}
+  catch(e){log('executeProgram 失败: '+e.message);}
+}
+
+// ---- 循环执行 ----
+let loopActive=false,loopCount=0,loopTotal=0,loopTimer=null;
+async function executeProgramSilent(){
+  const data=JSON.parse(document.getElementById('programJson').value);
+  const r=await postJSON('/executeProgram',data);
+  log(`循环 ${loopCount}/${loopTotal} → HTTP ${r.status} ${r.body.Result||''}`);
+  return r.status===200;
+}
+function toggleLoopExecution(){
+  const btn=document.getElementById('loopControlBtn');
+  if(!loopActive){
+    if(!document.getElementById('loopExecuteEnabled').checked){alert("请先勾选'循环执行'选项");return;}
+    const count=parseInt(document.getElementById('loopCount').value);
+    const interval=parseInt(document.getElementById('loopInterval').value);
+    if(isNaN(count)||count<1){alert('请输入有效的循环次数（至少为1）');return;}
+    if(isNaN(interval)||interval<0){alert('请输入有效的循环间隔时间（毫秒）');return;}
+    try{JSON.parse(document.getElementById('programJson').value);}
+    catch(e){alert('JSON 格式错误：'+e.message);return;}
+    loopActive=true;loopCount=0;loopTotal=count;
+    btn.textContent='停止循环';btn.classList.replace('b-orange','b-red');
+    document.getElementById('loopProgress').textContent=`正在执行: 0/${loopTotal}`;
+    loopCount++;
+    executeProgramSilent().then(ok=>{
+      document.getElementById('loopProgress').textContent=`正在执行: ${loopCount}/${loopTotal}`;
+      if(ok&&loopActive&&loopCount<loopTotal){
+        loopTimer=setInterval(async()=>{
+          loopCount++;
+          const ok2=await executeProgramSilent();
+          document.getElementById('loopProgress').textContent=`正在执行: ${loopCount}/${loopTotal}`;
+          if(!ok2||loopCount>=loopTotal){
+            clearInterval(loopTimer);resetLoop();
+            log(`循环执行完成: ${loopCount}/${loopTotal} 次`);
+          }
+        },interval);
+      }else if(!ok){resetLoop();log('循环首次执行失败，已停止');}
+    }).catch(e=>{resetLoop();log('循环执行失败: '+e.message);});
+  }else{
+    clearInterval(loopTimer);resetLoop();
+    log(`循环已停止: 已执行 ${loopCount}/${loopTotal} 次`);
+  }
+}
+function resetLoop(){
+  loopActive=false;loopTimer=null;
+  const btn=document.getElementById('loopControlBtn');
+  btn.textContent='开始循环';btn.classList.replace('b-red','b-orange');
+  document.getElementById('loopProgress').textContent='';
+}
+
+// ---- 停止程序 ----
+async function stopProgram(){
+  const stop=document.getElementById('stopProgram').value==='true';
+  log('发送停止程序 '+stop);
+  try{logResp('stopProgram',await postJSON('/stopProgram',{StopProgram:stop}));}
+  catch(e){log('stopProgram 失败: '+e.message);}
+}
+
+// ---- 位置反馈（200ms） ----
+let lastFb=null;
+function setConn(ok){
+  document.getElementById('connState').innerHTML=ok
+    ?'<span class="dot ok"></span>已连接':'<span class="dot off"></span>未连接';
+}
+function renderFeedback(d){
+  const tbl=document.getElementById('fbTable');
+  const st=document.getElementById('fbState');
+  if(!d||!Array.isArray(d.socFeedbacks)){
+    curState=null;gateFsmButtons();  // 连接丢失：命令全部禁用（互锁安全侧）
+    if(lastFb){
+      st.textContent='（更新失败，显示旧值）';
+    }else{
+      tbl.innerHTML='<tr><td style="color:#9ca3af">反馈不可用</td></tr>';
+      st.textContent='';
+    }
+    return;
+  }
+  lastFb=d;
+  st.textContent='';
+  curState=d.currentState||null;
+  gateFsmButtons();
+  const cols=new Set();
+  for(const u of d.socFeedbacks){const ja=u.jointAngle||{};for(const k in ja)cols.add(k);}
+  const keys=[...cols].sort((a,b)=>parseInt(a.slice(1))-parseInt(b.slice(1)));
+  let html='<tr><th>单元</th>'+keys.map(k=>`<th>${k}</th>`).join('')+'</tr>';
+  d.socFeedbacks.forEach((u,i)=>{
+    const ja=u.jointAngle||{};
+    html+=`<tr><td>单元 #${i}</td>`+
+      keys.map(k=>`<td>${ja[k]!==undefined?Number(ja[k]).toFixed(4):'—'}</td>`).join('')+
+      '</tr>';
+  });
+  tbl.innerHTML=html;
+}
+async function pollFb(){
+  try{
+    const r=await fetch(baseUrl()+'/stateAndPositionFeedback',
+      {method:'POST',headers:{'Content-Type':'application/json'},body:'{"cmd":"REFSINGLESOCPOS"}'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    setConn(true);
+    renderFeedback(await r.json());
+  }catch(e){setConn(false);renderFeedback(null);}
+}
+setInterval(pollFb,200);pollFb();
+
+// ================= 可视化程序构建器 =================
+const programState={name:'',cmd:'TESTAUTOPROGRAM',actionGroup:[]};
+let collapsed=false;
+
+function render(){
+  const container=document.getElementById('groupsContainer');
+  container.innerHTML='';
+  programState.actionGroup.forEach((group,gIdx)=>{
+    const card=document.createElement('div');
+    card.className='group';
+    card.dataset.groupIndex=gIdx;
+    card.innerHTML=`
+      <div class="group-head">
+        <button type="button" class="b-slate b-sm toggleGroup">${collapsed?'展开':'折叠'}</button>
+        <span style="font-weight:600">动作组 #${gIdx+1}</span>
+        <span style="font-size:12px;color:#6b7280">包含 ${group.length} 个动作</span>
+        <span style="flex:1"></span>
+        <button type="button" class="b-blue b-sm addAction">+ 动作</button>
+        <button type="button" class="b-indigo b-sm dupGroup">复制组</button>
+        <button type="button" class="b-red b-sm delGroup" ${programState.actionGroup.length===1?'disabled':''}>删除组</button>
+        <button type="button" class="b-slate b-sm moveUpGroup" ${gIdx===0?'disabled':''}>上移</button>
+        <button type="button" class="b-slate b-sm moveDownGroup" ${gIdx===programState.actionGroup.length-1?'disabled':''}>下移</button>
+      </div>
+      <div class="group-body ${collapsed?'hidden':''}"></div>`;
+    const body=card.querySelector('.group-body');
+    group.forEach((action,aIdx)=>{
+      const row=document.createElement('div');
+      row.className='action';
+      row.dataset.actionIndex=aIdx;
+      row.innerHTML=getActionRowHTML(action);
+      body.appendChild(row);
+    });
+    container.appendChild(card);
+  });
+  attachGroupEvents();
+  updatePreview();
+}
+
+function getActionRowHTML(action){
+  const cv=action.commandValue||[];
+  const speed=action.speed||{tcp_m_s:'',ori_rad_s:'',joint_rad_s:'',ext_rad_s:''};
+  return `
+  <div>
+    <label>unitType <input data-field="unitType" type="number" value="${action.unitType??''}"/></label>
+    <label>motionType <input data-field="motionType" type="number" value="${action.motionType??''}"/></label>
+    <label>pose_valid
+      <select data-field="is_pose_valid">
+        <option value="true" ${action.is_pose_valid?'selected':''}>true</option>
+        <option value="false" ${!action.is_pose_valid?'selected':''}>false</option>
+      </select>
+    </label>
+    <label>tcp <input data-speed="tcp_m_s" type="number" value="${speed.tcp_m_s??''}"></label>
+    <label>ori <input data-speed="ori_rad_s" type="number" value="${speed.ori_rad_s??''}"></label>
+    <label>joint <input data-speed="joint_rad_s" type="number" value="${speed.joint_rad_s??''}"></label>
+    <label>ext <input data-speed="ext_rad_s" type="number" value="${speed.ext_rad_s??''}"></label>
+  </div>
+  <div class="cvrow" style="margin-top:6px">
+    ${Array.from({length:7}).map((_,i)=>`<input data-cv-index="${i}" placeholder="cv${i}" type="number" value="${cv[i]??''}">`).join('')}
+  </div>
+  <div class="row" style="margin-top:6px">
+    <button type="button" class="b-indigo b-sm dupAction">复制</button>
+    <button type="button" class="b-red b-sm delAction">删除</button>
+    <button type="button" class="b-slate b-sm moveUpAction">↑</button>
+    <button type="button" class="b-slate b-sm moveDownAction">↓</button>
+  </div>`;
+}
+
+function newEmptyAction(){
+  return {
+    name:'',unitType:0,motionType:1,is_pose_valid:false,
+    speed:{tcp_m_s:10,ori_rad_s:10,joint_rad_s:10,ext_rad_s:10},
+    commandValue:[4,4,0,0,0,0,0],
+    currentActionGroup:1
+  };
+}
+
+function attachGroupEvents(){
+  document.querySelectorAll('#groupsContainer .toggleGroup').forEach(btn=>{
+    btn.onclick=e=>{
+      const body=e.target.closest('.group').querySelector('.group-body');
+      body.classList.toggle('hidden');
+      e.target.textContent=body.classList.contains('hidden')?'展开':'折叠';
+    };
+  });
+  document.querySelectorAll('#groupsContainer .addAction').forEach(btn=>{
+    btn.onclick=e=>{const g=+e.target.closest('[data-group-index]').dataset.groupIndex;
+      programState.actionGroup[g].push(newEmptyAction());render();};
+  });
+  document.querySelectorAll('#groupsContainer .delGroup').forEach(btn=>{
+    btn.onclick=e=>{const g=+e.target.closest('[data-group-index]').dataset.groupIndex;
+      if(programState.actionGroup.length>1){programState.actionGroup.splice(g,1);render();}};
+  });
+  document.querySelectorAll('#groupsContainer .dupGroup').forEach(btn=>{
+    btn.onclick=e=>{const g=+e.target.closest('[data-group-index]').dataset.groupIndex;
+      const c=JSON.parse(JSON.stringify(programState.actionGroup[g]));
+      programState.actionGroup.splice(g+1,0,c);render();};
+  });
+  document.querySelectorAll('#groupsContainer .moveUpGroup').forEach(btn=>{
+    btn.onclick=e=>{const g=+e.target.closest('[data-group-index]').dataset.groupIndex;
+      if(g>0){swap(programState.actionGroup,g,g-1);render();}};
+  });
+  document.querySelectorAll('#groupsContainer .moveDownGroup').forEach(btn=>{
+    btn.onclick=e=>{const g=+e.target.closest('[data-group-index]').dataset.groupIndex;
+      if(g<programState.actionGroup.length-1){swap(programState.actionGroup,g,g+1);render();}};
+  });
+  document.querySelectorAll('#groupsContainer .action[data-action-index]').forEach(row=>{
+    const g=+row.closest('[data-group-index]').dataset.groupIndex;
+    const a=+row.dataset.actionIndex;
+    row.querySelectorAll('[data-field]').forEach(inp=>{
+      inp.onchange=()=>{
+        const f=inp.dataset.field;let v=inp.value;
+        if(['unitType','motionType'].includes(f))v=parseInt(v||'0');
+        if(f==='is_pose_valid')v=(v==='true');
+        programState.actionGroup[g][a][f]=v;updatePreview();};
+    });
+    row.querySelectorAll('[data-speed]').forEach(inp=>{
+      inp.onchange=()=>{programState.actionGroup[g][a].speed[inp.dataset.speed]=parseFloat(inp.value||'0');updatePreview();};
+    });
+    row.querySelectorAll('[data-cv-index]').forEach(inp=>{
+      inp.onchange=()=>{programState.actionGroup[g][a].commandValue[+inp.dataset.cvIndex]=parseFloat(inp.value||'0');updatePreview();};
+    });
+    row.querySelector('.delAction').onclick=()=>{programState.actionGroup[g].splice(a,1);render();};
+    row.querySelector('.dupAction').onclick=()=>{
+      const c=JSON.parse(JSON.stringify(programState.actionGroup[g][a]));
+      programState.actionGroup[g].splice(a+1,0,c);render();};
+    row.querySelector('.moveUpAction').onclick=()=>{if(a>0){swap(programState.actionGroup[g],a,a-1);render();}};
+    row.querySelector('.moveDownAction').onclick=()=>{if(a<programState.actionGroup[g].length-1){swap(programState.actionGroup[g],a,a+1);render();}};
+  });
+}
+
+function swap(arr,i,j){const t=arr[i];arr[i]=arr[j];arr[j]=t;}
+
+function updatePreview(){
+  programState.name=document.getElementById('pbProgramName').value.trim();
+  programState.cmd=document.getElementById('pbCmd').value.trim()||'TESTAUTOPROGRAM';
+  programState.actionGroup.forEach((group,g)=>group.forEach(a=>a.currentActionGroup=g+1));
+  const errors=validateProgram(programState);
+  const errBox=document.getElementById('builderErrors');
+  if(errors.length){errBox.classList.remove('hidden');errBox.textContent=errors.join('\n');}
+  else{errBox.classList.add('hidden');errBox.textContent='';}
+  document.getElementById('jsonPreview').textContent=JSON.stringify(programState,null,2);
+}
+
+function validateProgram(state){
+  const errs=[];
+  if(!state.cmd)errs.push('cmd 不能为空');
+  if(!Array.isArray(state.actionGroup)||!state.actionGroup.length)errs.push('至少需要 1 个动作组');
+  state.actionGroup.forEach((group,g)=>{
+    if(!group.length)errs.push(`动作组 ${g+1} 为空`);
+    group.forEach((a,ai)=>{
+      if(a.commandValue?.length!==7)errs.push(`组${g+1} 动作${ai+1} commandValue 长度不是 7`);
+    });
+  });
+  return errs;
+}
+
+function initProgramBuilder(){
+  if(programState.actionGroup.length===0)programState.actionGroup.push([newEmptyAction()]);
+  document.getElementById('addGroupBtn').onclick=()=>{programState.actionGroup.push([newEmptyAction()]);render();};
+  document.getElementById('collapseAllBtn').onclick=()=>{collapsed=!collapsed;render();};
+  document.getElementById('syncToTextareaBtn').onclick=()=>{
+    document.getElementById('programJson').value=JSON.stringify(programState,null,2);
+    log('构建器已同步到文本区域');};
+  document.getElementById('copyJsonBtn').onclick=async()=>{
+    await navigator.clipboard.writeText(JSON.stringify(programState,null,2));
+    log('构建器 JSON 已复制到剪贴板');};
+  document.getElementById('sendProgramBtn').onclick=async()=>{
+    const errors=validateProgram(programState);
+    if(errors.length){alert('请先修复错误:\n'+errors.join('\n'));return;}
+    try{
+      const payload=JSON.parse(JSON.stringify(programState));
+      logResp('executeProgram(构建器)',await postJSON('/executeProgram',payload));
+    }catch(e){log('executeProgram(构建器) 失败: '+e.message);}};
+  document.getElementById('loadFromTextareaBtn').onclick=()=>{
+    try{
+      const data=JSON.parse(document.getElementById('programJson').value);
+      if(!Array.isArray(data.actionGroup))throw new Error('actionGroup 缺失或不是数组');
+      Object.assign(programState,{name:data.name||'',cmd:data.cmd||'TESTAUTOPROGRAM',actionGroup:data.actionGroup});
+      document.getElementById('pbProgramName').value=programState.name;
+      document.getElementById('pbCmd').value=programState.cmd;
+      render();
+      log('已载入到构建器');
+    }catch(e){alert('载入失败: '+e.message);}};
+  document.getElementById('openBuilderBtn').onclick=()=>{
+    const box=document.getElementById('programBuilder');
+    box.classList.toggle('hidden');
+    if(!box.classList.contains('hidden'))render();};
+  document.getElementById('pbProgramName').addEventListener('input',updatePreview);
+  render();
+}
+window.addEventListener('DOMContentLoaded',initProgramBuilder);
+</script>
+</body>
+</html>

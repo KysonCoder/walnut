@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="2arm_urdf_v11">
+  <mujoco>
+        <compiler  meshdir="C:\Users\22372\Desktop\VoxPoser-main2\refactor_vox\mujoco\assets\2arm_urdf_v11\meshes" balanceinertia="true" discardvisual="false" />
+  </mujoco>
+  <link
+    name="Base">
+    <inertial>
+      <origin
+        xyz="-1.99914886746482E-06 -4.5393786958399E-06 0.0468850164516722"
+        rpy="0 0 0" />
+      <mass
+        value="0.000353014531936693" />
+      <inertia
+        ixx="3.30151771458279E-07"
+        ixy="2.43510045189621E-11"
+        ixz="-2.61538965619996E-11"
+        iyy="3.32561030643978E-07"
+        iyz="-5.95629285882996E-11"
+        izz="3.06088244561616E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.909803921568627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Body">
+    <inertial>
+      <origin
+        xyz="-0.00102732102763551 7.81648974179563E-06 -0.0115930276796981"
+        rpy="0 0 0" />
+      <mass
+        value="0.000267675315894776" />
+      <inertia
+        ixx="2.13182777718635E-07"
+        ixy="-9.67125086187727E-11"
+        ixz="8.26055933755186E-13"
+        iyy="2.02184630859785E-07"
+        iyz="4.62587221065274E-14"
+        izz="1.74251134206449E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="basejoint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.165999999999982"
+      rpy="0 0 0" />
+    <parent
+      link="Base" />
+    <child
+      link="Body" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Larm1">
+    <inertial>
+      <origin
+        xyz="-0.0043842251141327 0.000615193291583355 0.0440087379767213"
+        rpy="0 0 0" />
+      <mass
+        value="1.89376564076801E-05" />
+      <inertia
+        ixx="3.30414594147121E-09"
+        ixy="-1.91893337266084E-12"
+        ixz="8.06856404006134E-10"
+        iyy="3.5426033629603E-09"
+        iyz="7.97863695151193E-13"
+        izz="2.83803723214784E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.909803921568627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ1"
+    type="revolute">
+    <origin
+      xyz="0 -0.0732000000000001 0"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="Body" />
+    <child
+      link="Larm1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Larm2">
+    <inertial>
+      <origin
+        xyz="-0.0413589818314958 5.50040164554455E-05 -0.0011751630409874"
+        rpy="0 0 0" />
+      <mass
+        value="5.0008315874696E-05" />
+      <inertia
+        ixx="5.44270117120878E-09"
+        ixy="-3.4503421053014E-11"
+        ixz="-2.59389517150917E-09"
+        iyy="1.9277047870986E-08"
+        iyz="2.99032512214848E-11"
+        izz="1.8311612589694E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.056"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="Larm1" />
+    <child
+      link="Larm2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Larm3">
+    <inertial>
+      <origin
+        xyz="0.0228479149852333 0.000171717249023262 -0.000537899679852538"
+        rpy="0 0 0" />
+      <mass
+        value="3.96686928977392E-05" />
+      <inertia
+        ixx="3.62440018584262E-09"
+        ixy="4.27064730338585E-11"
+        ixz="1.74365611944575E-11"
+        iyy="4.06958427849E-09"
+        iyz="-2.43927735792647E-11"
+        izz="4.07592411737822E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ3"
+    type="revolute">
+    <origin
+      xyz="-0.1 0 0"
+      rpy="-3.14159265358979 0 -3.14159265358979" />
+    <parent
+      link="Larm2" />
+    <child
+      link="Larm3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Larm4">
+    <inertial>
+      <origin
+        xyz="-0.00381488983360633 -0.000176752646637329 -0.0114533657022645"
+        rpy="0 0 0" />
+      <mass
+        value="1.24699183738671E-05" />
+      <inertia
+        ixx="1.59475555234368E-09"
+        ixy="1.85354950875075E-12"
+        ixz="-3.91845907877019E-10"
+        iyy="1.84999757517205E-09"
+        iyz="-2.18398875215512E-13"
+        izz="1.58836067893253E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.486274509803922 0.486274509803922 0.486274509803922 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ4"
+    type="revolute">
+    <origin
+      xyz="0.0709499999999997 0 0"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="Larm3" />
+    <child
+      link="Larm4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Larm5">
+    <inertial>
+      <origin
+        xyz="0.0192762210777723 0.00046692375652177 1.31317062239521E-05"
+        rpy="0 0 0" />
+      <mass
+        value="2.97584945613809E-05" />
+      <inertia
+        ixx="2.49844615692524E-09"
+        ixy="-3.26294198733454E-11"
+        ixz="-1.1480553015977E-11"
+        iyy="2.36062977189461E-09"
+        iyz="-3.25372013967651E-11"
+        izz="2.4044773179717E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ5"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.0200000000000001"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="Larm4" />
+    <child
+      link="Larm5" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Larm_ter">
+    <inertial>
+      <origin
+        xyz="4.20943332555027E-17 -8.32667268468867E-17 -0.000999999999998002"
+        rpy="0 0 0" />
+      <mass
+        value="1.22522113490002E-05" />
+      <inertia
+        ixx="4.84983365897925E-12"
+        ixy="-7.72299010642107E-43"
+        ixz="3.25455558284191E-28"
+        iyy="4.84983365897925E-12"
+        iyz="2.77761474247014E-27"
+        izz="1.53152641862503E-12" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Larm_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ6"
+    type="revolute">
+    <origin
+      xyz="0.055449999999998 0 0"
+      rpy="0 -1.5707963267949 0" />
+    <parent
+      link="Larm5" />
+    <child
+      link="Larm_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Rarm1">
+    <inertial>
+      <origin
+        xyz="-0.00629732408559556 0.000586971109720835 0.044777434714135"
+        rpy="0 0 0" />
+      <mass
+        value="2.06375853257213E-05" />
+      <inertia
+        ixx="3.46280062974512E-09"
+        ixy="-1.94269640515933E-12"
+        ixz="-8.06873999320756E-10"
+        iyy="3.62292929353946E-09"
+        iyz="-8.44663883602049E-13"
+        izz="2.91874386768962E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.909803921568627 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ1"
+    type="revolute">
+    <origin
+      xyz="0 0.0732 0"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="Body" />
+    <child
+      link="Rarm1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Rarm2">
+    <inertial>
+      <origin
+        xyz="-0.0438109564279983 0.000268442440219313 -0.00270050513632759"
+        rpy="0 0 0" />
+      <mass
+        value="5.18690582335126E-05" />
+      <inertia
+        ixx="5.5664477762997E-09"
+        ixy="3.45501297345505E-11"
+        ixz="2.59391276658058E-09"
+        iyy="1.936225228283E-08"
+        iyz="2.99032531691311E-11"
+        izz="1.85189576908021E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.056"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="Rarm1" />
+    <child
+      link="Rarm2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Rarm3">
+    <inertial>
+      <origin
+        xyz="-0.0229245508708339 -0.000160625263500525 0.000570637735303334"
+        rpy="0 0 0" />
+      <mass
+        value="3.8691992472483E-05" />
+      <inertia
+        ixx="3.59449830706684E-09"
+        ixy="-4.27064647467005E-11"
+        ixz="1.77777345582677E-11"
+        iyy="4.03143231475827E-09"
+        iyz="2.44161181460491E-11"
+        izz="4.06510111917444E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ3"
+    type="revolute">
+    <origin
+      xyz="-0.1 0 0"
+      rpy="3.14159265358978 0 0" />
+    <parent
+      link="Rarm2" />
+    <child
+      link="Rarm3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Rarm4">
+    <inertial>
+      <origin
+        xyz="-0.00437202847433977 7.44409810607694E-05 0.0113060931861639"
+        rpy="0 0 0" />
+      <mass
+        value="1.27792363606714E-05" />
+      <inertia
+        ixx="1.59611451166483E-09"
+        ixy="-1.84292892097317E-12"
+        ixz="-3.91845907877016E-10"
+        iyy="1.85189624015797E-09"
+        iyz="-9.3076208316597E-13"
+        izz="1.58961966683138E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ4"
+    type="revolute">
+    <origin
+      xyz="-0.0709499999999978 0 0"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="Rarm3" />
+    <child
+      link="Rarm4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Rarm5">
+    <inertial>
+      <origin
+        xyz="-0.0192688565278442 0.000488666345925509 -3.39225094308164E-05"
+        rpy="0 0 0" />
+      <mass
+        value="2.96962095514592E-05" />
+      <inertia
+        ixx="2.49832635173552E-09"
+        ixy="3.26294198732977E-11"
+        ixz="-1.14805530159746E-11"
+        iyy="2.36019012816124E-09"
+        iyz="3.25372013966914E-11"
+        izz="2.40403767423848E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ5"
+    type="revolute">
+    <origin
+      xyz="0 0 0.020000000000002"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="Rarm4" />
+    <child
+      link="Rarm5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="Rarm_ter">
+    <inertial>
+      <origin
+        xyz="-0.0112 -5.55111512312578E-17 -0.000999999999997891"
+        rpy="0 0 0" />
+      <mass
+        value="1.22522113490002E-05" />
+      <inertia
+        ixx="4.84983365897925E-12"
+        ixy="-6.56332273143803E-30"
+        ixz="1.58731062277194E-28"
+        iyy="4.84983365897925E-12"
+        iyz="-2.33680397307088E-27"
+        izz="1.53152641862503E-12" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://2arm_urdf_v11/meshes/Rarm_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ6"
+    type="revolute">
+    <origin
+      xyz="-0.055449999999998 0 0.0112"
+      rpy="3.14159265358979 -1.5707963267949 0" />
+    <parent
+      link="Rarm5" />
+    <child
+      link="Rarm_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+</robot>

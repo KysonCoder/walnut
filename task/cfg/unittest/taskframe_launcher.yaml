@@ -1,0 +1,13 @@
+system:
+  shm_name: "/ROBOT_GLOBAL_DATA"
+  shm_size: 104857600
+  watchdog_interval_ms: 100
+  heartbeat_timeout_ms: 500
+
+tasks:
+  - name: "test_worker"
+    executable: "./TaskFrame/output/taskframe_test/test_worker.elf"
+    priority: 80
+    cpu: 2
+    autorestart: false
+    max_restarts: 1

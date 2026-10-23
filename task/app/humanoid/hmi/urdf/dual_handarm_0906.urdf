@@ -1,0 +1,3301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dual_handarm_0906">
+  <mujoco>
+    <compiler 
+      meshdir="../meshes/" 
+      balanceinertia="true" 
+      discardvisual="false" />
+  </mujoco>
+  <link
+    name="Basement">
+    <inertial>
+      <origin
+        xyz="-2.2477E-05 4.8054E-10 -4.381E-08"
+        rpy="0 0 0" />
+      <mass
+        value="3.0332" />
+      <inertia
+        ixx="0.0030824"
+        ixy="6.581E-10"
+        ixz="-3.4376E-09"
+        iyy="0.0035228"
+        iyz="4.487E-06"
+        izz="0.0030842" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Basement.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Basement.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Arm_R1">
+    <inertial>
+      <origin
+        xyz="-0.00014523 0.0041366 -0.0087005"
+        rpy="0 0 0" />
+      <mass
+        value="2.0249" />
+      <inertia
+        ixx="0.0022458"
+        ixy="2.2015E-06"
+        ixz="-7.8481E-06"
+        iyy="0.0025901"
+        iyz="-1.6763E-05"
+        izz="0.0021112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_RJ1"
+    type="revolute">
+    <origin
+      xyz="0 -0.259484426962476 -0.00284291469384612"
+      rpy="3.14159265358969 1.55984075236485 1.5707963267948" />
+    <parent
+      link="Basement" />
+    <child
+      link="Arm_R1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_R2">
+    <inertial>
+      <origin
+        xyz="0.084381 0.00093146 0.00065303"
+        rpy="0 0 0" />
+      <mass
+        value="1.7812" />
+      <inertia
+        ixx="0.0014856"
+        ixy="-2.5762E-06"
+        ixz="2.3493E-06"
+        iyy="0.0016747"
+        iyz="1.9128E-07"
+        izz="0.0017398" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_RJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 -0.0109555744300499 0" />
+    <parent
+      link="Arm_R1" />
+    <child
+      link="Arm_R2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_R3">
+    <inertial>
+      <origin
+        xyz="-0.012844 -0.004325 0.28668"
+        rpy="0 0 0" />
+      <mass
+        value="1.6802" />
+      <inertia
+        ixx="0.0015692"
+        ixy="7.7986E-06"
+        ixz="2.9545E-05"
+        iyy="0.0016064"
+        iyz="1.4069E-05"
+        izz="0.0014201" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_RJ3"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 0 -1.55984075236485" />
+    <parent
+      link="Arm_R2" />
+    <child
+      link="Arm_R3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_R4">
+    <inertial>
+      <origin
+        xyz="0.073642 -0.018826 0.00033444"
+        rpy="0 0 0" />
+      <mass
+        value="1.1714" />
+      <inertia
+        ixx="0.00082128"
+        ixy="6.7011E-05"
+        ixz="1.3075E-06"
+        iyy="0.0009368"
+        iyz="-5.999E-07"
+        izz="0.0010266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_RJ4"
+    type="revolute">
+    <origin
+      xyz="-0.0150000000000001 0 0.3"
+      rpy="1.57079632679486 -1.55984075236484 0" />
+    <parent
+      link="Arm_R3" />
+    <child
+      link="Arm_R4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_R5_wristbase">
+    <inertial>
+      <origin
+        xyz="-0.0039124 0.0025179 -0.12898"
+        rpy="0 0 0" />
+      <mass
+        value="2.9685" />
+      <inertia
+        ixx="0.010424"
+        ixy="4.859E-07"
+        ixz="1.2313E-05"
+        iyy="0.0099027"
+        iyz="-3.3557E-08"
+        izz="0.0027405" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R5_wristbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_R5_wristbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_RJ5"
+    type="revolute">
+    <origin
+      xyz="0.350262414802126 -0.0220344252890237 0.00257257201084406"
+      rpy="-1.5707963267949 0 -1.55984075236484" />
+    <parent
+      link="Arm_R4" />
+    <child
+      link="Arm_R5_wristbase" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_R1">
+    <inertial>
+      <origin
+        xyz="-9.8735E-06 -0.0024921 -0.00090113"
+        rpy="0 0 0" />
+      <mass
+        value="0.0024319" />
+      <inertia
+        ixx="1.611E-07"
+        ixy="1.2049E-14"
+        ixz="-2.0349E-10"
+        iyy="2.7163E-08"
+        iyz="6.5741E-14"
+        izz="1.4253E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_R1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_R1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_RJ1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="3.14159265358934 -1.55984075236484 0" />
+    <parent
+      link="Arm_R5_wristbase" />
+    <child
+      link="wrist_R1" />
+    <axis
+      xyz="-0.0109553552749481 0 -0.999939988294698" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_R2_handbase">
+    <inertial>
+      <origin
+        xyz="0.065002 0.00043776 0.0033253"
+        rpy="0 0 0" />
+      <mass
+        value="0.39882" />
+      <inertia
+        ixx="0.00020871"
+        ixy="-8.6739E-06"
+        ixz="-1.2103E-05"
+        iyy="0.00042557"
+        iyz="-3.4732E-06"
+        izz="0.00024985" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_R2_handbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_R2_handbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_RJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 0.0109555744300561 0" />
+    <parent
+      link="wrist_R1" />
+    <child
+      link="wrist_R2_handbase" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RTB_1">
+    <inertial>
+      <origin
+        xyz="0.00010086 3.6512E-05 -0.010825"
+        rpy="0 0 0" />
+      <mass
+        value="0.010294" />
+      <inertia
+        ixx="4.9017E-07"
+        ixy="-4.2762E-10"
+        ixz="3.3443E-09"
+        iyy="6.3793E-07"
+        iyz="-5.672E-09"
+        izz="6.2802E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RTB_J1"
+    type="revolute">
+    <origin
+      xyz="0.0685497869189591 0.0197703521594454 0.0323549021821032"
+      rpy="0.785383828820795 0 1.57079632679491" />
+    <parent
+      link="wrist_R2_handbase" />
+    <child
+      link="RTB_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RTB_2">
+    <inertial>
+      <origin
+        xyz="-0.00012165 -0.01602 0.00037129"
+        rpy="0 0 0" />
+      <mass
+        value="0.011241" />
+      <inertia
+        ixx="1.2449E-06"
+        ixy="8.971E-08"
+        ixz="1.0244E-09"
+        iyy="3.5337E-07"
+        iyz="4.0623E-08"
+        izz="1.4713E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RTB_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="RTB_1" />
+    <child
+      link="RTB_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RTB_3">
+    <inertial>
+      <origin
+        xyz="-0.0039234 -0.0010749 0.00080595"
+        rpy="0 0 0" />
+      <mass
+        value="0.0036371" />
+      <inertia
+        ixx="9.4445E-08"
+        ixy="-8.8907E-09"
+        ixz="-2.3902E-10"
+        iyy="1.2204E-07"
+        iyz="2.7743E-10"
+        izz="1.1265E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RTB_J3"
+    type="revolute">
+    <origin
+      xyz="0 -0.0380000000000067 -0.00120000000004317"
+      rpy="0 0 1.56304952189986" />
+    <parent
+      link="RTB_2" />
+    <child
+      link="RTB_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RTB_4">
+    <inertial>
+      <origin
+        xyz="-2.5293E-05 -0.015301 0.00045858"
+        rpy="0 0 0" />
+      <mass
+        value="0.009654" />
+      <inertia
+        ixx="1.0564E-06"
+        ixy="-4.7557E-08"
+        ixz="-3.0663E-10"
+        iyy="3.1314E-07"
+        iyz="-2.3167E-09"
+        izz="1.2784E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RTB_J4"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57854313168992 1.5707963267949 0" />
+    <parent
+      link="RTB_3" />
+    <child
+      link="RTB_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RTB_5_ter">
+    <inertial>
+      <origin
+        xyz="-0.00074118 -0.014808 0.00023275"
+        rpy="0 0 0" />
+      <mass
+        value="0.012998" />
+      <inertia
+        ixx="9.1771E-07"
+        ixy="-1.5193E-07"
+        ixz="6.7938E-09"
+        iyy="2.8341E-07"
+        iyz="2.5387E-08"
+        izz="1.0044E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_5_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RTB_5_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RTB_J5"
+    type="revolute">
+    <origin
+      xyz="0 -0.0319999999999481 -0.000447090580745435"
+      rpy="0 0 0" />
+    <parent
+      link="RTB_4" />
+    <child
+      link="RTB_5_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RIF_1">
+    <inertial>
+      <origin
+        xyz="-0.00332699898696687 0.000877535607899309 -0.00190135248229018"
+        rpy="0 0 0" />
+      <mass
+        value="0.00432884833603938" />
+      <inertia
+        ixx="1.01289666541252E-07"
+        ixy="8.67591593716285E-09"
+        ixz="2.17553939396987E-10"
+        iyy="1.2856350596946E-07"
+        iyz="2.79272966656987E-10"
+        izz="1.24476192956413E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RIF_J1"
+    type="revolute">
+    <origin
+      xyz="0.128792036224101 0.0106846375951393 0.0320079279891657"
+      rpy="-1.57079632679487 0 0" />
+    <parent
+      link="wrist_R2_handbase" />
+    <child
+      link="RIF_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RIF_2">
+    <inertial>
+      <origin
+        xyz="0.0219032420860825 0.000422416033436956 0.000645018217804692"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138939786154372" />
+      <inertia
+        ixx="4.95162366687974E-07"
+        ixy="3.32171978302038E-10"
+        ixz="-8.11444030047641E-08"
+        iyy="2.5071274493088E-06"
+        iyz="7.14210876926843E-10"
+        izz="2.834859942041E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RIF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57079632679487 0.0109555744300546 0" />
+    <parent
+      link="RIF_1" />
+    <child
+      link="RIF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RIF_3">
+    <inertial>
+      <origin
+        xyz="0.0103541315314346 -0.000623731348746936 -0.000690803686225407"
+        rpy="0 0 0" />
+      <mass
+        value="0.00987395502232533" />
+      <inertia
+        ixx="3.57990489588591E-07"
+        ixy="-8.99652554959715E-08"
+        ixz="1.87556453354514E-09"
+        iyy="7.62508529204077E-07"
+        iyz="-2.83343222317098E-10"
+        izz="1.00060160872761E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RIF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994732593 0.000492990987372099 0"
+      rpy="0 0 0" />
+    <parent
+      link="RIF_2" />
+    <child
+      link="RIF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RIF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.0158797975683864 -0.000680971709239309 -0.000228662522835703"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116480914187156" />
+      <inertia
+        ixx="2.44869559638417E-07"
+        ixy="1.31955697026889E-07"
+        ixz="4.72368602808663E-10"
+        iyy="9.05278144996985E-07"
+        iyz="-1.05342350403867E-10"
+        izz="9.51969298077602E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RIF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RIF_J4"
+    type="revolute">
+    <origin
+      xyz="0.024998499707368 0.000273883881873438 0"
+      rpy="0 0 0" />
+    <parent
+      link="RIF_3" />
+    <child
+      link="RIF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RMF_1">
+    <inertial>
+      <origin
+        xyz="-0.00332699898696487 0.000877535607899119 -0.00190135248228973"
+        rpy="0 0 0" />
+      <mass
+        value="0.00432884833603935" />
+      <inertia
+        ixx="1.01289666541251E-07"
+        ixy="8.67591593716111E-09"
+        ixz="2.1755393940137E-10"
+        iyy="1.28563505969458E-07"
+        iyz="2.79272966656961E-10"
+        izz="1.24476192956412E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RMF_J1"
+    type="revolute">
+    <origin
+      xyz="0.1327920362241 0.0106846375951397 0.00900792798916081"
+      rpy="-1.57079632679487 0 0" />
+    <parent
+      link="wrist_R2_handbase" />
+    <child
+      link="RMF_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RMF_2">
+    <inertial>
+      <origin
+        xyz="0.0219032420860961 0.000422416033432516 0.000645018217798096"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138939786154545" />
+      <inertia
+        ixx="4.95162366688307E-07"
+        ixy="3.32171979088106E-10"
+        ixz="-8.11444030047046E-08"
+        iyy="2.50712744931055E-06"
+        iyz="7.1421087690783E-10"
+        izz="2.83485994204311E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RMF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57079632679487 0.0109555744300549 0" />
+    <parent
+      link="RMF_1" />
+    <child
+      link="RMF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RMF_3">
+    <inertial>
+      <origin
+        xyz="0.0103541315314362 -0.000623731348745604 -0.000690803686224872"
+        rpy="0 0 0" />
+      <mass
+        value="0.00987395502232627" />
+      <inertia
+        ixx="3.57990489588605E-07"
+        ixy="-8.99652554959446E-08"
+        ixz="1.87556453354007E-09"
+        iyy="7.62508529204132E-07"
+        iyz="-2.83343222311837E-10"
+        izz="1.00060160872767E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RMF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994732597 0.000492990987372099 0"
+      rpy="0 0 0" />
+    <parent
+      link="RMF_2" />
+    <child
+      link="RMF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RMF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.0158798004162013 -0.000680970751531174 -0.000228662822766526"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116480940862405" />
+      <inertia
+        ixx="2.4486957034779E-07"
+        ixy="1.31955687507472E-07"
+        ixz="4.72396689971201E-10"
+        iyy="9.05278310278411E-07"
+        iyz="-1.05338962263094E-10"
+        izz="9.51969463011251E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RMF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RMF_J4"
+    type="revolute">
+    <origin
+      xyz="0.0249984997073682 0.000273883881873438 0"
+      rpy="0 0 0" />
+    <parent
+      link="RMF_3" />
+    <child
+      link="RMF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RRF_1">
+    <inertial>
+      <origin
+        xyz="-0.00332699898696331 0.000877535607899341 -0.00190135248228973"
+        rpy="0 0 0" />
+      <mass
+        value="0.0043288483360392" />
+      <inertia
+        ixx="1.01289666541249E-07"
+        ixy="8.67591593716149E-09"
+        ixz="2.17553939402192E-10"
+        iyy="1.28563505969454E-07"
+        iyz="2.79272966657065E-10"
+        izz="1.24476192956408E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRF_J1"
+    type="revolute">
+    <origin
+      xyz="0.128792036224099 0.0106846375951402 -0.013992072010839"
+      rpy="-1.57079632679487 0 0" />
+    <parent
+      link="wrist_R2_handbase" />
+    <child
+      link="RRF_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RRF_2">
+    <inertial>
+      <origin
+        xyz="0.0219032420860987 0.000422416033432516 0.000645018217797319"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138939786154529" />
+      <inertia
+        ixx="4.95162366688267E-07"
+        ixy="3.32171979188271E-10"
+        ixz="-8.11444030047097E-08"
+        iyy="2.50712744931028E-06"
+        iyz="7.14210876918162E-10"
+        izz="2.83485994204281E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57079632679487 0.0109555744300549 0" />
+    <parent
+      link="RRF_1" />
+    <child
+      link="RRF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RRF_3">
+    <inertial>
+      <origin
+        xyz="0.0106629739263384 -0.000642335968836782 -0.000529692723196779"
+        rpy="0 0 0" />
+      <mass
+        value="0.00958796577229887" />
+      <inertia
+        ixx="3.55238996310061E-07"
+        ixy="-8.99652554959556E-08"
+        ixz="1.87556453354382E-09"
+        iyy="7.59757035925479E-07"
+        iyz="-2.83343222314951E-10"
+        izz="9.95167496314803E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994732599 0.000492990987372544 0"
+      rpy="0 0 0" />
+    <parent
+      link="RRF_2" />
+    <child
+      link="RRF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RRF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.0158797975683889 -0.0006809717092362 -0.000228662522834766"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116480914187194" />
+      <inertia
+        ixx="2.4486955963851E-07"
+        ixy="1.31955697027044E-07"
+        ixz="4.7236860284854E-10"
+        iyy="9.05278144997182E-07"
+        iyz="-1.0534235047444E-10"
+        izz="9.51969298077861E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RRF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRF_J4"
+    type="revolute">
+    <origin
+      xyz="0.024998499707368 0.000273883881873438 0"
+      rpy="0 0 0" />
+    <parent
+      link="RRF_3" />
+    <child
+      link="RRF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RLF_1">
+    <inertial>
+      <origin
+        xyz="-0.00332699773876843 -0.000877535461548881 -0.00190135195269203"
+        rpy="0 0 0" />
+      <mass
+        value="0.00432885632380196" />
+      <inertia
+        ixx="1.01289907358285E-07"
+        ixy="-8.67602216252185E-09"
+        ixz="2.17464990401018E-10"
+        iyy="1.28563667219403E-07"
+        iyz="-2.79390233290243E-10"
+        izz="1.24476428880915E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLF_J1"
+    type="revolute">
+    <origin
+      xyz="0.121760230550547 0.010684637595141 -0.0369920720108386"
+      rpy="-1.57079632679487 0 0" />
+    <parent
+      link="wrist_R2_handbase" />
+    <child
+      link="RLF_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RLF_2">
+    <inertial>
+      <origin
+        xyz="0.0219030124352892 0.000422662301318599 -0.000644750673097855"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138942868926518" />
+      <inertia
+        ixx="4.95182270217196E-07"
+        ixy="3.6775509797953E-10"
+        ixz="8.11525375806133E-08"
+        iyy="2.50716773905162E-06"
+        iyz="-7.07578251717993E-10"
+        izz="2.83491547122838E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57079632679487 0.0109555744300547 0" />
+    <parent
+      link="RLF_1" />
+    <child
+      link="RLF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RLF_3">
+    <inertial>
+      <origin
+        xyz="0.010823889230442 -0.000640582667210232 0.000329652371253819"
+        rpy="0 0 0" />
+      <mass
+        value="0.00958799500854374" />
+      <inertia
+        ixx="3.5523869706105E-07"
+        ixy="-8.99637631472069E-08"
+        ixz="-1.87569929506977E-09"
+        iyy="7.59766773433028E-07"
+        iyz="2.82959302731203E-10"
+        izz="9.9517651549912E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994732613 0.000492990987372099 0"
+      rpy="0 0 0" />
+    <parent
+      link="RLF_2" />
+    <child
+      link="RLF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RLF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.0158798002560381 -0.000680970489587374 -2.8663051800451E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.011648094086147" />
+      <inertia
+        ixx="2.44869570352166E-07"
+        ixy="1.31955687503915E-07"
+        ixz="4.7238980023621E-10"
+        iyy="9.05278310279065E-07"
+        iyz="-1.05336647243881E-10"
+        izz="9.51969463003596E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/RLF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLF_J4"
+    type="revolute">
+    <origin
+      xyz="0.0249984997073673 0.000273883881873882 0"
+      rpy="0 0 0" />
+    <parent
+      link="RLF_3" />
+    <child
+      link="RLF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_L1">
+    <inertial>
+      <origin
+        xyz="-0.00016132 -0.004136 -0.0088939"
+        rpy="0 0 0" />
+      <mass
+        value="2.0249" />
+      <inertia
+        ixx="0.0022458"
+        ixy="-8.6079E-07"
+        ixz="7.8993E-06"
+        iyy="0.0025901"
+        iyz="1.3113E-05"
+        izz="0.0021112" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_LJ1"
+    type="revolute">
+    <origin
+      xyz="0 0.259484426962476 0.00284291469384834"
+      rpy="0 1.55984075236485 1.5707963267948" />
+    <parent
+      link="Basement" />
+    <child
+      link="Arm_L1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_L2">
+    <inertial>
+      <origin
+        xyz="0.084381 -0.00093146 -0.00065303"
+        rpy="0 0 0" />
+      <mass
+        value="1.7812" />
+      <inertia
+        ixx="0.0014856"
+        ixy="2.5762E-06"
+        ixz="-2.3493E-06"
+        iyy="0.0016747"
+        iyz="1.9128E-07"
+        izz="0.0017398" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_LJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.57079632679489 0.0109556576723862 -0.00389839239275972" />
+    <parent
+      link="Arm_L1" />
+    <child
+      link="Arm_L2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_L3">
+    <inertial>
+      <origin
+        xyz="0.012884 0.0024414 -0.2874"
+        rpy="0 0 0" />
+      <mass
+        value="1.7742" />
+      <inertia
+        ixx="0.0016362"
+        ixy="-3.3994E-05"
+        ixz="3.2363E-05"
+        iyy="0.001695"
+        iyz="-2.6793E-06"
+        izz="0.0014727" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_LJ3"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 -0.341851375339609 1.55984066912251" />
+    <parent
+      link="Arm_L2" />
+    <child
+      link="Arm_L3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_L4">
+    <inertial>
+      <origin
+        xyz="0.073212 -0.020434 0.00033444"
+        rpy="0 0 0" />
+      <mass
+        value="1.1714" />
+      <inertia
+        ixx="0.00082427"
+        ixy="6.9477E-05"
+        ixz="1.2941E-06"
+        iyy="0.00093381"
+        iyz="-6.284E-07"
+        izz="0.0010266" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_LJ4"
+    type="revolute">
+    <origin
+      xyz="0.0141320346062175 0.0050284786853152 -0.3"
+      rpy="1.57079632679493 1.55984066912252 0.341851375339646" />
+    <parent
+      link="Arm_L3" />
+    <child
+      link="Arm_L4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Arm_L5_wristbase">
+    <inertial>
+      <origin
+        xyz="0.00012517 -7.1949E-05 -0.12898"
+        rpy="0 0 0" />
+      <mass
+        value="2.9685" />
+      <inertia
+        ixx="0.010366"
+        ixy="-0.00016434"
+        ixz="-1.1589E-05"
+        iyy="0.009961"
+        iyz="4.1593E-06"
+        izz="0.0027405" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L5_wristbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/Arm_L5_wristbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_LJ5"
+    type="revolute">
+    <origin
+      xyz="0.349736880392849 -0.0259330772004476 8.0500000038175E-05"
+      rpy="1.5707963267949 -0.341851375339657 1.55984066912251" />
+    <parent
+      link="Arm_L4" />
+    <child
+      link="Arm_L5_wristbase" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_L1">
+    <inertial>
+      <origin
+        xyz="-7.3443E-10 -6.8902E-09 -0.0028692"
+        rpy="0 0 0" />
+      <mass
+        value="0.0024319" />
+      <inertia
+        ixx="1.611E-07"
+        ixy="5.2214E-10"
+        ixz="7.6245E-15"
+        iyy="2.7165E-08"
+        iyz="6.4948E-14"
+        izz="1.4253E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_LJ1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57079632679344 -1.56689793440211 1.2289449514567" />
+    <parent
+      link="Arm_L5_wristbase" />
+    <child
+      link="wrist_L1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist_L2_handbase">
+    <inertial>
+      <origin
+        xyz="0.064949 -0.0040398 -0.005815"
+        rpy="0 0 0" />
+      <mass
+        value="0.39884" />
+      <inertia
+        ixx="0.00020854"
+        ixy="-6.2964E-06"
+        ixz="1.2146E-05"
+        iyy="0.00042574"
+        iyz="3.3426E-06"
+        izz="0.00024986" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_L2_handbase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/wrist_L2_handbase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_LJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.0109556576723912 0.0038983923927246" />
+    <parent
+      link="wrist_L1" />
+    <child
+      link="wrist_L2_handbase" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LTB_1">
+    <inertial>
+      <origin
+        xyz="-3.4941E-05 -0.00010139 -0.010825"
+        rpy="0 0 0" />
+      <mass
+        value="0.010294" />
+      <inertia
+        ixx="6.3791E-07"
+        ixy="1.8524E-09"
+        ixz="5.7228E-09"
+        iyy="4.9019E-07"
+        iyz="-3.2564E-09"
+        izz="6.2802E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LTB_J1"
+    type="revolute">
+    <origin
+      xyz="0.0687209600830265 0.0152480468224359 -0.0348469741928889"
+      rpy="3.12616228702992 -0.785264758400431 0.0108673549891456" />
+    <parent
+      link="wrist_L2_handbase" />
+    <child
+      link="LTB_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LTB_2">
+    <inertial>
+      <origin
+        xyz="0.014585 -0.0003565 2.7981E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.010549" />
+      <inertia
+        ixx="3.4381E-07"
+        ixy="-7.5796E-08"
+        ixz="4.0623E-08"
+        iyy="1.2412E-06"
+        iyz="-1.6535E-09"
+        izz="1.4595E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LTB_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267948 -1.5552424574881 -1.55536368048141" />
+    <parent
+      link="LTB_1" />
+    <child
+      link="LTB_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LTB_3">
+    <inertial>
+      <origin
+        xyz="-0.0039474 -0.00098315 -0.00080595"
+        rpy="0 0 0" />
+      <mass
+        value="0.0036371" />
+      <inertia
+        ixx="9.4046E-08"
+        ixy="-8.2385E-09"
+        ixz="2.324E-10"
+        iyy="1.2243E-07"
+        iyz="-2.8304E-10"
+        izz="1.1265E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LTB_J3"
+    type="revolute">
+    <origin
+      xyz="0.0379954035585091 -0.000591023202642038 0.00120000000001141"
+      rpy="0 0 0" />
+    <parent
+      link="LTB_2" />
+    <child
+      link="LTB_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LTB_4">
+    <inertial>
+      <origin
+        xyz="0.010759 -0.010879 -0.00045846"
+        rpy="0 0 0" />
+      <mass
+        value="0.0096542" />
+      <inertia
+        ixx="7.3524E-07"
+        ixy="3.7123E-07"
+        ixz="-1.4138E-09"
+        iyy="6.343E-07"
+        iyz="1.8606E-09"
+        izz="1.2784E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LTB_J4"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.789310890366821 -0.0155538693065873" />
+    <parent
+      link="LTB_3" />
+    <child
+      link="LTB_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LTB_5_ter">
+    <inertial>
+      <origin
+        xyz="0.010114 -0.011265 -0.0017502"
+        rpy="0 0 0" />
+      <mass
+        value="0.012717" />
+      <inertia
+        ixx="7.6466E-07"
+        ixy="3.2458E-07"
+        ixz="1.3918E-08"
+        iyy="4.4861E-07"
+        iyz="-2.4112E-08"
+        izz="1.0164E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_5_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LTB_5_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LTB_J5"
+    type="revolute">
+    <origin
+      xyz="0.0225387091128877 -0.0227157784705521 0.00182107818563271"
+      rpy="0 0 0" />
+    <parent
+      link="LTB_4" />
+    <child
+      link="LTB_5_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LIF_1">
+    <inertial>
+      <origin
+        xyz="-0.0033236 -0.0008905 -0.0019014"
+        rpy="0 0 0" />
+      <mass
+        value="0.0043289" />
+      <inertia
+        ixx="1.0136E-07"
+        ixy="-8.7821E-09"
+        ixz="2.1855E-10"
+        iyy="1.285E-07"
+        iyz="-2.7854E-10"
+        izz="1.2448E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LIF_J1"
+    type="revolute">
+    <origin
+      xyz="0.128838046915009 0.00550313839232919 -0.034500000000036"
+      rpy="-1.5707963267949 -0.00389839239272459 -0.0109556576723914" />
+    <parent
+      link="wrist_L2_handbase" />
+    <child
+      link="LIF_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LIF_2">
+    <inertial>
+      <origin
+        xyz="0.0219070115616367 -5.73191846884313E-05 -0.00064474869391393"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138942971335693" />
+      <inertia
+        ixx="4.96164334934791E-07"
+        ixy="4.44386622763735E-08"
+        ixz="8.11175652616076E-08"
+        iyy="2.50618706819303E-06"
+        iyz="-2.48544474847321E-09"
+        izz="2.83491670902457E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LIF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.0109556576723914 0.00389839239274164" />
+    <parent
+      link="LIF_1" />
+    <child
+      link="LIF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LIF_3">
+    <inertial>
+      <origin
+        xyz="0.010494 -0.00085216 0.00031534"
+        rpy="0 0 0" />
+      <mass
+        value="0.009874" />
+      <inertia
+        ixx="3.5424E-07"
+        ixy="-8.1017E-08"
+        ixz="-1.8691E-09"
+        iyy="7.6627E-07"
+        iyz="3.2398E-10"
+        izz="1.0006E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LIF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994322234 -0.000492994733052754 0.000175428546343979"
+      rpy="0 0 0" />
+    <parent
+      link="LIF_2" />
+    <child
+      link="LIF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LIF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.015861 -0.0010287 -0.00030155"
+        rpy="0 0 0" />
+      <mass
+        value="0.011648" />
+      <inertia
+        ixx="2.5097E-07"
+        ixy="1.4629E-07"
+        ixz="4.7006E-10"
+        iyy="8.9918E-07"
+        iyz="-1.156E-10"
+        izz="9.5197E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LIF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LIF_J4"
+    type="revolute">
+    <origin
+      xyz="0.0249984996845685 -0.000273885962807086 9.74603035329251E-05"
+      rpy="0 0 0" />
+    <parent
+      link="LIF_3" />
+    <child
+      link="LIF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LMF_1">
+    <inertial>
+      <origin
+        xyz="-0.000233426472512566 -0.000878452125442256 -0.00190135193279861"
+        rpy="0 0 0" />
+      <mass
+        value="0.00432885634721414" />
+      <inertia
+        ixx="1.01357966521694E-07"
+        ixy="-8.78208111374506E-09"
+        ixz="2.18552052146359E-10"
+        iyy="1.28495608658376E-07"
+        iyz="-2.78540200823656E-10"
+        izz="1.24476428886866E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LMF_J1"
+    type="revolute">
+    <origin
+      xyz="0.129747843825214 0.00549317057002607 -0.0115000000000255"
+      rpy="-1.5707963267949 -0.00389839239272459 -0.0109556576723914" />
+    <parent
+      link="wrist_L2_handbase" />
+    <child
+      link="LMF_1" />
+    <axis
+      xyz="-0.0735121985035107 -0.000286580847186562 -0.997294276802288" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LMF_2">
+    <inertial>
+      <origin
+        xyz="0.0249969746009622 -9.11731164365825E-05 -0.000644748693910097"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138942971335742" />
+      <inertia
+        ixx="4.96164334934867E-07"
+        ixy="4.44386622765227E-08"
+        ixz="8.11175652614206E-08"
+        iyy="2.50618706819335E-06"
+        iyz="-2.48544474840077E-09"
+        izz="2.83491670902502E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LMF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.0109556576723914 0.00389839239274173" />
+    <parent
+      link="LMF_1" />
+    <child
+      link="LMF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LMF_3">
+    <inertial>
+      <origin
+        xyz="0.0104942352231241 -0.00085215596097088 0.000315336107845912"
+        rpy="0 0 0" />
+      <mass
+        value="0.0098739847730479" />
+      <inertia
+        ixx="3.54243226446572E-07"
+        ixy="-8.10165117590955E-08"
+        ixz="-1.86905154209542E-09"
+        iyy="7.6626527420227E-07"
+        iyz="3.23983701871354E-10"
+        izz="1.00061067440676E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LMF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0480872624715454 -0.000526848664798241 0.000175428546344267"
+      rpy="0 0 0" />
+    <parent
+      link="LMF_2" />
+    <child
+      link="LMF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LMF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.0158610727509736 -0.00102872982348412 -0.00030154959743816"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116480777923371" />
+      <inertia
+        ixx="2.50966942188882E-07"
+        ixy="1.46294805145318E-07"
+        ixz="4.70064072370431E-10"
+        iyy="8.99179703697284E-07"
+        iyz="-1.15598549034022E-10"
+        izz="9.51969060058377E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LMF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LMF_J4"
+    type="revolute">
+    <origin
+      xyz="0.0249984996845687 -0.000273885962807086 9.74603035332616E-05"
+      rpy="0 0 0" />
+    <parent
+      link="LMF_3" />
+    <child
+      link="LMF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LRF_1">
+    <inertial>
+      <origin
+        xyz="-0.00332355147855323 -0.000890498706284007 -0.00190135193279994"
+        rpy="0 0 0" />
+      <mass
+        value="0.00432885634721457" />
+      <inertia
+        ixx="1.01357966521701E-07"
+        ixy="-8.78208111374466E-09"
+        ixz="2.18552052146079E-10"
+        iyy="1.28495608658397E-07"
+        iyz="-2.78540200824795E-10"
+        izz="1.24476428886884E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LRF_J1"
+    type="revolute">
+    <origin
+      xyz="0.128838046915008 0.00550313839232919 0.011499999999976"
+      rpy="-1.5707963267949 -0.00389839239272459 -0.0109556576723914" />
+    <parent
+      link="wrist_L2_handbase" />
+    <child
+      link="LRF_1" />
+    <axis
+      xyz="-0.0735121985035081 -0.000286580847186238 -0.997294276802288" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LRF_2">
+    <inertial>
+      <origin
+        xyz="0.0219070115616355 -5.73191846893195E-05 -0.000644748693914426"
+        rpy="0 0 0" />
+      <mass
+        value="0.0138942971335699" />
+      <inertia
+        ixx="4.96164334934766E-07"
+        ixy="4.44386622763658E-08"
+        ixz="8.11175652615999E-08"
+        iyy="2.50618706819309E-06"
+        iyz="-2.48544474848621E-09"
+        izz="2.8349167090246E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LRF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.0109556576723914 0.0038983923927417" />
+    <parent
+      link="LRF_1" />
+    <child
+      link="LRF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LRF_3">
+    <inertial>
+      <origin
+        xyz="0.0104942352231248 -0.000852155960971324 0.000490764654189443"
+        rpy="0 0 0" />
+      <mass
+        value="0.00987398477304787" />
+      <inertia
+        ixx="3.54243226446563E-07"
+        ixy="-8.10165117590577E-08"
+        ixz="-1.86905154209566E-09"
+        iyy="7.66265274202262E-07"
+        iyz="3.23983701871171E-10"
+        izz="1.00061067440674E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LRF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994322232 -0.000492994733053198 0"
+      rpy="0 0 0" />
+    <parent
+      link="LRF_2" />
+    <child
+      link="LRF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LRF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.0158610727509749 -0.00102872982349478 -0.000301549597449186"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116480777923219" />
+      <inertia
+        ixx="2.50966942188484E-07"
+        ixy="1.46294805144881E-07"
+        ixz="4.700640720511E-10"
+        iyy="8.99179703696592E-07"
+        iyz="-1.15598548845668E-10"
+        izz="9.51969060057522E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LRF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LRF_J4"
+    type="revolute">
+    <origin
+      xyz="0.0249984996845685 -0.000273885962807086 0.000272888849883995"
+      rpy="0 0 0" />
+    <parent
+      link="LRF_3" />
+    <child
+      link="LRF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LLF_1">
+    <inertial>
+      <origin
+        xyz="-0.0033304 0.00086456 -0.0019014"
+        rpy="0 0 0" />
+      <mass
+        value="0.0043288" />
+      <inertia
+        ixx="1.0122E-07"
+        ixy="8.5693E-09"
+        ixz="2.1646E-10"
+        iyy="1.2863E-07"
+        iyz="2.8012E-10"
+        izz="1.2448E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LLF_J1"
+    type="revolute">
+    <origin
+      xyz="0.121806663238518 0.00558017490701612 0.0344999999999781"
+      rpy="-1.5707963267949 -0.00389839239272459 -0.0109556576723915" />
+    <parent
+      link="wrist_L2_handbase" />
+    <child
+      link="LLF_1" />
+    <axis
+      xyz="-0.0735121985035063 -0.000286580847186316 -0.997294276802288" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LLF_2">
+    <inertial>
+      <origin
+        xyz="0.021907 -5.7573E-05 0.00064502"
+        rpy="0 0 0" />
+      <mass
+        value="0.013894" />
+      <inertia
+        ixx="4.9614E-07"
+        ixy="4.4402E-08"
+        ixz="-8.1109E-08"
+        iyy="2.5061E-06"
+        iyz="2.4918E-09"
+        izz="2.8349E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LLF_J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.0109556576723915 0.00389839239274169" />
+    <parent
+      link="LLF_1" />
+    <child
+      link="LLF_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LLF_3">
+    <inertial>
+      <origin
+        xyz="0.010338 -0.00085043 -0.00086693"
+        rpy="0 0 0" />
+      <mass
+        value="0.009874" />
+      <inertia
+        ixx="3.5424E-07"
+        ixy="-8.1018E-08"
+        ixz="1.8689E-09"
+        iyy="7.6626E-07"
+        iyz="-3.2437E-10"
+        izz="1.0006E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LLF_J3"
+    type="revolute">
+    <origin
+      xyz="0.0449972994322234 -0.000492994733052754 0.000176129389714411"
+      rpy="0 0 0" />
+    <parent
+      link="LLF_2" />
+    <child
+      link="LLF_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LLF_4_ter">
+    <inertial>
+      <origin
+        xyz="0.015861 -0.0010287 -0.00050225"
+        rpy="0 0 0" />
+      <mass
+        value="0.011648" />
+      <inertia
+        ixx="2.5097E-07"
+        ixy="1.4629E-07"
+        ixz="4.7004E-10"
+        iyy="8.9918E-07"
+        iyz="-1.156E-10"
+        izz="9.5197E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_4_ter.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.86667 0.9098 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dual_handarm_0906/meshes/LLF_4_ter.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LLF_J4"
+    type="revolute">
+    <origin
+      xyz="0.0249984996845698 -0.000273885962807086 9.74603035374388E-05"
+      rpy="0 0 0" />
+    <parent
+      link="LLF_3" />
+    <child
+      link="LLF_4_ter" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>

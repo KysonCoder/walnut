@@ -1,0 +1,10 @@
+.aws/
+.codex/
+.agents/
+.vscode/
+**/build/
+**/build-*/
+**/build_*/
+**/CMakeFiles/
+**/__pycache__/
+*.pyc

@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="NieNieDual_0829">
+  <mujoco>
+    <compiler 
+      meshdir="../meshes/" 
+      balanceinertia="true" 
+      discardvisual="false" />
+  </mujoco>
+  <link
+    name="Ground_base">
+    <inertial>
+      <origin
+        xyz="0.004970324982293 4.63253392797291E-05 0.401215415566593"
+        rpy="0 0 0" />
+      <mass
+        value="2517.62126277965" />
+      <inertia
+        ixx="461.601501234008"
+        ixy="-0.0274807290181282"
+        ixz="-9.76236875381466"
+        iyy="345.719245249052"
+        iyz="-0.073644312655538"
+        izz="494.35289465478" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/Ground_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/Ground_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="1.21772791628061E-07 -7.94913792345753E-07 0.0394922641397466"
+        rpy="0 0 0" />
+      <mass
+        value="1.13197269808188" />
+      <inertia
+        ixx="0.000643986746971907"
+        ixy="4.1867654999721E-07"
+        ixz="4.49851981193397E-09"
+        iyy="0.000605938335888571"
+        iyz="-2.94897327154453E-08"
+        izz="0.000795978605407562" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base"
+    type="fixed">
+    <origin
+      xyz="0.228 0 1.44"
+      rpy="3.14159265358979 0 0" />
+    <parent
+      link="Ground_base" />
+    <child
+      link="base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cross">
+    <inertial>
+      <origin
+        xyz="-1.26478566286892E-07 2.71234634752204E-08 -0.0240569983009169"
+        rpy="0 0 0" />
+      <mass
+        value="0.244097880128457" />
+      <inertia
+        ixx="0.00025067225650884"
+        ixy="1.52555773539296E-09"
+        ixz="-1.51295286428107E-10"
+        iyy="0.000229265077727899"
+        iyz="-2.06093802714121E-10"
+        izz="0.000145181066062405" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/cross.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/cross.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_J"
+    type="revolute">
+    <origin
+      xyz="0 0 0.156000000000005"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="cross" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="waist_L">
+    <inertial>
+      <origin
+        xyz="7.05104641340881E-10 0.0434854814465333 -6.98556767986247E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.428353036847771" />
+      <inertia
+        ixx="0.000100955668266633"
+        ixy="1.2665433866864E-12"
+        ixz="-9.88537358413131E-13"
+        iyy="0.000110953761462722"
+        iyz="-1.52560699136078E-13"
+        izz="0.000100955665549405" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/waist_L.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/waist_L.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J_waist_L"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="cross" />
+    <child
+      link="waist_L" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="L1">
+    <inertial>
+      <origin
+        xyz="0.00179210785944761 -0.00455456363183382 0.00326238449720817"
+        rpy="0 0 0" />
+      <mass
+        value="0.53907463085506" />
+      <inertia
+        ixx="0.000155903635111312"
+        ixy="1.54873116090985E-08"
+        ixz="1.05721753826E-05"
+        iyy="0.00016347196583586"
+        iyz="-1.72767698080634E-13"
+        izz="0.000160450929764456" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ1"
+    type="revolute">
+    <origin
+      xyz="0 0.0999999999999699 0"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="waist_L" />
+    <child
+      link="L1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L2">
+    <inertial>
+      <origin
+        xyz="0.0340000000000007 1.77635683940025E-15 0.0296936131112002"
+        rpy="0 0 0" />
+      <mass
+        value="0.0830292483980702" />
+      <inertia
+        ixx="1.16959967443143E-05"
+        ixy="1.47713653549324E-08"
+        ixz="-4.85762896051277E-20"
+        iyy="6.71255703485537E-05"
+        iyz="-1.34018285417362E-20"
+        izz="7.78596301842442E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="L1" />
+    <child
+      link="L2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L3">
+    <inertial>
+      <origin
+        xyz="-0.00165748556969803 0.0301839208798951 0.00249613121103098"
+        rpy="0 0 0" />
+      <mass
+        value="0.983622073081103" />
+      <inertia
+        ixx="0.000291535459653721"
+        ixy="1.08164105582004E-08"
+        ixz="8.09674168720947E-09"
+        iyy="0.000260563412351719"
+        iyz="3.28479380138551E-19"
+        izz="0.000287360626949341" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ3"
+    type="revolute">
+    <origin
+      xyz="0.0679999999999994 0 0"
+      rpy="0 0 -1.5707963267949" />
+    <parent
+      link="L2" />
+    <child
+      link="L3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L4">
+    <inertial>
+      <origin
+        xyz="0.00179210779234529 -0.00455456370923724 0.00326238448690552"
+        rpy="0 0 0" />
+      <mass
+        value="0.539074630855062" />
+      <inertia
+        ixx="0.000155903635111313"
+        ixy="1.54873116091921E-08"
+        ixz="1.05721753826E-05"
+        iyy="0.000163471965835861"
+        iyz="-1.72767814396807E-13"
+        izz="0.000160450929764456" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ4"
+    type="revolute">
+    <origin
+      xyz="0 0.118499999999974 0"
+      rpy="-1.57079632679489 0 -3.14159265358979" />
+    <parent
+      link="L3" />
+    <child
+      link="L4" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L5">
+    <inertial>
+      <origin
+        xyz="-1.00357766541492E-09 0.0629548469910817 0.00401169644164789"
+        rpy="0 0 0" />
+      <mass
+        value="0.488803477454397" />
+      <inertia
+        ixx="0.000160816450703333"
+        ixy="-5.27204691341502E-09"
+        ixz="5.69185828276836E-12"
+        iyy="0.000131855829196006"
+        iyz="6.99845087790636E-07"
+        izz="0.000169362833518444" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.57079632679489 0 3.14159265358979" />
+    <parent
+      link="L4" />
+    <child
+      link="L5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L6">
+    <inertial>
+      <origin
+        xyz="1.99840144432528E-14 -6.88338275267597E-15 -0.0875000000000146"
+        rpy="0 0 0" />
+      <mass
+        value="0.0425503984886584" />
+      <inertia
+        ixx="2.81253701676856E-06"
+        ixy="8.65163842205204E-36"
+        ixz="-6.19143916192895E-22"
+        iyy="2.81253701676856E-06"
+        iyz="3.3930478483696E-22"
+        izz="5.27757911254641E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/L6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LJ6"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.57079632679489 0 -3.14159265358979" />
+    <parent
+      link="L5" />
+    <child
+      link="L6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="LTool">
+    <inertial>
+      <origin
+        xyz="-0.0166928323948845 -1.77384119615098E-07 0.0332554184765121"
+        rpy="0 0 0" />
+      <mass
+        value="0.0732639751779748" />
+      <inertia
+        ixx="7.78232651802078E-06"
+        ixy="1.22570745309967E-08"
+        ixz="-6.18357219972075E-07"
+        iyy="9.56911077388063E-06"
+        iyz="1.43639787667958E-09"
+        izz="8.09975710801502E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/LTool.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/LTool.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J_LTool"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.0910000000000046"
+      rpy="3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="L6" />
+    <child
+      link="LTool" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="waist_R">
+    <inertial>
+      <origin
+        xyz="6.97459867637917E-11 0.0434854814465693 7.05102642939437E-10"
+        rpy="0 0 0" />
+      <mass
+        value="0.428353036847771" />
+      <inertia
+        ixx="0.000100955665549405"
+        ixy="1.52560690657241E-13"
+        ixz="9.88537295552227E-13"
+        iyy="0.000110953761462722"
+        iyz="1.2665433727846E-12"
+        izz="0.000100955668266633" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/waist_R.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/waist_R.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J_waist_R"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="cross" />
+    <child
+      link="waist_R" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="R1">
+    <inertial>
+      <origin
+        xyz="0.00179210785944761 -0.00455456363182183 0.00326238449720728"
+        rpy="0 0 0" />
+      <mass
+        value="0.539074630855062" />
+      <inertia
+        ixx="0.000155903635111313"
+        ixy="1.54873116091662E-08"
+        ixz="1.05721753826E-05"
+        iyy="0.000163471965835861"
+        iyz="-1.72767376196264E-13"
+        izz="0.000160450929764456" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ1"
+    type="revolute">
+    <origin
+      xyz="0 0.0999999999999606 0"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="waist_R" />
+    <child
+      link="R1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R2">
+    <inertial>
+      <origin
+        xyz="0.0339999999999996 1.33226762955019E-15 0.0296936131111878"
+        rpy="0 0 0" />
+      <mass
+        value="0.0830292483980709" />
+      <inertia
+        ixx="1.16959967443145E-05"
+        ixy="1.47713653548807E-08"
+        ixz="8.37361686849844E-20"
+        iyy="6.71255703485546E-05"
+        iyz="-5.57510128150892E-21"
+        izz="7.78596301842453E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 1.5707963267949 0" />
+    <parent
+      link="R1" />
+    <child
+      link="R2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R3">
+    <inertial>
+      <origin
+        xyz="-0.00165748560646239 0.030183920872175 0.00249613116653391"
+        rpy="0 0 0" />
+      <mass
+        value="0.983622073081099" />
+      <inertia
+        ixx="0.000291535459653722"
+        ixy="1.08164105583129E-08"
+        ixz="8.09674168758307E-09"
+        iyy="0.000260563412351718"
+        iyz="3.66402853721042E-19"
+        izz="0.000287360626949339" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ3"
+    type="revolute">
+    <origin
+      xyz="0.067999999999999 0 0"
+      rpy="0 0 -1.5707963267949" />
+    <parent
+      link="R2" />
+    <child
+      link="R3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R4">
+    <inertial>
+      <origin
+        xyz="-0.00179210785944672 -0.00455456363182227 -0.00326238449720417"
+        rpy="0 0 0" />
+      <mass
+        value="0.539074630855063" />
+      <inertia
+        ixx="0.000155903635111314"
+        ixy="-1.54873116091248E-08"
+        ixz="1.05721753826E-05"
+        iyy="0.000163471965835862"
+        iyz="1.72767458111758E-13"
+        izz="0.000160450929764457" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ4"
+    type="revolute">
+    <origin
+      xyz="0 0.118499999999964 0"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="R3" />
+    <child
+      link="R4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R5">
+    <inertial>
+      <origin
+        xyz="-1.00354924370549E-09 0.062954846991075 0.00401169644163812"
+        rpy="0 0 0" />
+      <mass
+        value="0.488803477454397" />
+      <inertia
+        ixx="0.000160816450703333"
+        ixy="-5.27204691300342E-09"
+        ixz="5.69185871042134E-12"
+        iyy="0.000131855829196006"
+        iyz="6.99845087790642E-07"
+        izz="0.000169362833518444" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ5"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="R4" />
+    <child
+      link="R5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="R6">
+    <inertial>
+      <origin
+        xyz="-2.26485497023532E-14 2.22044604925031E-16 -0.0875000000000066"
+        rpy="0 0 0" />
+      <mass
+        value="0.0425503984886598" />
+      <inertia
+        ixx="2.81253701676866E-06"
+        ixy="-2.25694915357879E-36"
+        ixz="-4.23291432655352E-22"
+        iyy="2.81253701676866E-06"
+        iyz="-4.65402868497719E-22"
+        izz="5.27757911254658E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/R6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RJ6"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.57079632679489 0 -3.14159265358979" />
+    <parent
+      link="R5" />
+    <child
+      link="R6" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RTool">
+    <inertial>
+      <origin
+        xyz="0.000668397633763806 -1.37814305967154E-07 0.0437174657720276"
+        rpy="0 0 0" />
+      <mass
+        value="0.0917455615686689" />
+      <inertia
+        ixx="1.14549759811848E-05"
+        ixy="-2.09387465803999E-09"
+        ixz="1.43832519811476E-06"
+        iyy="9.48272359376665E-06"
+        iyz="-5.38450639609745E-09"
+        izz="1.06378073855981E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/RTool.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.866666666666667 0.909803921568627 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://NieNieDual_0829/meshes/RTool.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J_RTool"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.0910000000000042"
+      rpy="3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="R6" />
+    <child
+      link="RTool" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

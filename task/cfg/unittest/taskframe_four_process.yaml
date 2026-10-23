@@ -1,0 +1,34 @@
+system:
+  shm_name: "/ROBOT_GLOBAL_DATA"
+  shm_size: 104857600
+  watchdog_interval_ms: 100
+  heartbeat_timeout_ms: 500
+
+tasks:
+  - name: "state_master"
+    executable: "./TaskFrame/output/taskframe_test/test_state_master_worker.elf"
+    priority: 99
+    cpu: 0
+    autorestart: true
+    max_restarts: 3
+
+  - name: "planning"
+    executable: "./TaskFrame/output/taskframe_test/test_planning_worker.elf"
+    priority: 80
+    cpu: 1
+    autorestart: true
+    max_restarts: 3
+
+  - name: "servo"
+    executable: "./TaskFrame/output/taskframe_test/test_servo_worker.elf"
+    priority: 80
+    cpu: 2
+    autorestart: true
+    max_restarts: 3
+
+  - name: "fieldbus"
+    executable: "./TaskFrame/output/taskframe_test/test_fieldbus_worker.elf"
+    priority: 80
+    cpu: 3
+    autorestart: true
+    max_restarts: 3
